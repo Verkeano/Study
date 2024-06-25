@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
 )
 
 // App struct
@@ -22,6 +23,7 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // Greet returns a greeting for the given name
-func (a *App) Greet(name string) string {
+func (a *App) StopWatch(name string) string {
+	time.Sleep(5 * time.Second)
 	return fmt.Sprintf("Hello %s, It's show time!", name)
 }
