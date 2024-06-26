@@ -1,16 +1,21 @@
+<script>
+// @ts-nocheck
+  let duration  
+  import { Pomodoro } from '../wailsjs/go/main/App.js'
+</script>
 <body>
   <div class="background">
     <div class="box">
       <div class="pomodoro">
         <!-- pomodoro timer -->
+         <div>
+          <h1>{Timertime}</h1>
+         </div>
         <div class="display">
-          <p>00:90:00</p>
+          <input type="time" autocomplete="on" bind:value={duration}>
         </div>
         <div class="display">
-          <p>(:</p>
-        </div>
-        <div class="display">
-          <button>Start</button>
+          <button on:click={}>Start</button>
           <button>Stop</button>
           <button>Reset</button>
         </div>
@@ -22,8 +27,7 @@
 
 <style>
   .display {
-    justify-content: center;
-    align-items: center;
+    text-align: center;
   }
   .background {
     position: absolute;
@@ -37,7 +41,7 @@
     height: auto;
     background-color: blue;
     position: absolute;
-    
+    border-radius: 15px;
   }
 
   .box {

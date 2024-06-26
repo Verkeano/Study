@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"time"
 )
 
 // App struct
@@ -23,7 +22,14 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // Greet returns a greeting for the given name
-func (a *App) StopWatch(name string) string {
-	time.Sleep(5 * time.Second)
-	return fmt.Sprintf("Hello %s, It's show time!", name)
+func (a *App) Pomodoro(DurationParsed string) string {
+	Timertime := DurationParsed
+	if Timertime == "0" {
+		return fmt.Sprintf("Hello It's time for a break!")
+	} else {
+
+		return fmt.Sprint(Timertime)
+
+	}
+
 }
