@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"time"
 )
 
 // App struct
@@ -21,15 +21,18 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-// Greet returns a greeting for the given name
-func (a *App) Pomodoro(DurationParsed string) string {
-	Timertime := DurationParsed
-	if Timertime == "0" {
-		return fmt.Sprintf("Hello It's time for a break!")
-	} else {
+// Pomodoro returns the remaining time for the given duration in seconds
+func (a *App) Pomodoro(duration uint) uint {
+	timer := duration
+	ticker := time.NewTicker(time.Second)
+	defer ticker.Stop()
 
-		return fmt.Sprint(Timertime)
-
+	for range ticker.C {
+		if timer == 0 {
+			break
+		}
+		timer--
 	}
 
+	return timer
 }
